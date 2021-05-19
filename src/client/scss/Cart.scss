@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+
+
+.cartContainer {
+
+  position: absolute;
+  right: 5%;
+  top: 20px;
+  height: 300px;
+  width:  200px;
+  overflow: scroll;
+  background-color: grey;
+  border: 1px solid $border-dark-grey;
+
+  img {
+    height: 30px;
+    width: 15px;    
+
+  }
+
+}

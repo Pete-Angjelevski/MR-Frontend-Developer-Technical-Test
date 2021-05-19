@@ -22,7 +22,7 @@ const Cart: React.FC<ICartProps> = (props):any => {
 
 
   return (
-    <div>
+    <div className="cartContainer">
       <ul>
         {cart.map((item: CartType) => {
           return (

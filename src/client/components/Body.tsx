@@ -18,11 +18,19 @@ interface IBodyProps {
 
 const Body: React.FC<IBodyProps> = () => {
   const [ {id, name, price, description, img, sizes }  ] = clothingData
-
   const [ selectedSize, setSelected ] = useState<string>('')
   const [ sizeError, setSizeError ] = useState<boolean>(false)
 
+  const [style, setStyle] = useState<object>()
+  
+
   function handleSize (size: string):void {
+    setStyle({
+      margin: "10px",
+      padding: "5px",
+      border: "2px solid #222222",
+      
+    })
     setSelected(size)
   }
 
@@ -51,11 +59,18 @@ const Body: React.FC<IBodyProps> = () => {
         <p>{description}</p>
         <div>
           <p>SIZE<span>*</span> <strong>{selectedSize}</strong> 
-            {sizeError ? <p> PLEASE SELECT SIZE</p> : <p></p>}
+            {sizeError ? <p className="error"> PLEASE SELECT SIZE</p> : <p></p>}
           </p>
           {sizes.map((size: string) => {
             return (
-              <p className="size" key={size}  onClick={() => handleSize(size)}>{size}</p> )
+              <p 
+              className="size" 
+              key={size}  
+              onClick={() => handleSize(size)}
+              style={style}
+              >
+                {size}
+              </p> )
           })}
         </div>
         <button onClick={handleAddToCart}>ADD TO CART</button>
