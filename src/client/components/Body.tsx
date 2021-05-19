@@ -13,7 +13,7 @@ interface IBodyProps {
 
 
 const Body: React.FC<IBodyProps> = () => {
-  const [ {name, price, description, img, sizes }  ] = clothingData
+  const [ {id, name, price, description, img, sizes }  ] = clothingData
 
   const [ selectedSize, setSelected ] = useState<string>('')
   
