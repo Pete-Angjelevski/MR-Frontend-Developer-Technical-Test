@@ -20,14 +20,23 @@ const Body: React.FC<IBodyProps> = () => {
   const [ {id, name, price, description, img, sizes }  ] = clothingData
 
   const [ selectedSize, setSelected ] = useState<string>('')
-  
+  const [ sizeError, setSizeError ] = useState<boolean>(false)
+
   function handleSize (size: string):void {
     setSelected(size)
   }
 
   function handleAddToCart (): void {
 
-    dispatch(addToCart(id, name, price, img, selectedSize))
+
+    if (selectedSize === '') {
+      console.log("Must Select Size")
+      setSizeError(true)
+    } else {
+      dispatch(addToCart(id, name, price, img, selectedSize))
+    }
+
+    
 
   }
 
@@ -41,7 +50,9 @@ const Body: React.FC<IBodyProps> = () => {
         <p className="price"><strong>${price}.00</strong></p>
         <p>{description}</p>
         <div>
-          <p>SIZE* {selectedSize}</p>
+          <p>SIZE<span>*</span> <strong>{selectedSize}</strong> 
+            {sizeError ? <p> PLEASE SELECT SIZE</p> : <p></p>}
+          </p>
           {sizes.map((size: string) => {
             return (
               <p className="size" key={size}  onClick={() => handleSize(size)}>{size}</p> )

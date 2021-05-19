@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useState } from 'react'
 import { Link, Route } from 'react-router-dom'
 
 
@@ -16,11 +17,14 @@ interface IHeaderProps {
 }
 
 const Header: React.FC<IHeaderProps> = () => {
+  const [trigger, setTrigger ] = useState<boolean>(false)
+
+   
 
 
     return (
         <div className="headerContainer">
-          <Link className="link" to='/cart'>My Cart(0)</Link>
+          <Link className="link" onClick={() => setTrigger(!trigger)} to={trigger ? '/cart' : '/'}>My Cart(0)</Link>
           <Route path="/cart" component={Cart} />
           
         </div>

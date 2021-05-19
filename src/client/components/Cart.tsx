@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
+// STYLES 
+import "../scss/Cart.scss"
+
 
 interface ICartProps {
 
@@ -20,11 +23,10 @@ const Cart: React.FC<ICartProps> = (props):any => {
 
   return (
     <div>
-      <Link to="/">X</Link>
       <ul>
         {cart.map((item: CartType) => {
           return (
-            <li>
+            <li key={item.size}>
               <img src={item.img} />
               <p>{item.name}</p>
               <p>{item.quantity}x <strong>${item.price}.00</strong> </p>

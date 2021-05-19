@@ -32,6 +32,15 @@
     color: $font-color1
   }
 
+  span {
+    color: $required-star;
+    font-weight: bold;
+  }
+
+  strong {
+    color: $font-color1;
+  }
+
 
   .size{
     display: inline;
