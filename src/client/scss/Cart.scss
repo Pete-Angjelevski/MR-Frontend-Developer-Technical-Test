@@ -3,20 +3,44 @@
 
 
 .cartContainer {
-
+  color: black;
   position: absolute;
   right: 5%;
   top: 20px;
-  height: 300px;
-  width:  200px;
+  height: 400px;
+  width:  300px;
   overflow: scroll;
-  background-color: grey;
+  background-color: white;
   border: 1px solid $border-dark-grey;
 
-  img {
-    height: 30px;
-    width: 15px;    
 
-  }
+
+
+  .itemContainer{
+    position: relative;
+    list-style-type: none;
+    margin: 5% 0;
+    
+
+
+    
+
+    .content {
+      position: absolute;
+      left: 50% ; 
+      top: 5%;
+      
+    }
+
+
+    img {
+      position: relative;
+      left: 5%;
+      top: 0%;
+      height: 100px;
+      width: 75px;    
+
+    }
+}
 
 }

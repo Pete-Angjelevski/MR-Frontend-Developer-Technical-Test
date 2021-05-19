@@ -26,11 +26,13 @@ const Cart: React.FC<ICartProps> = (props):any => {
       <ul>
         {cart.map((item: CartType) => {
           return (
-            <li key={item.size}>
+            <li className="itemContainer" key={item.size}>
               <img src={item.img} />
+              <div className="content">
               <p>{item.name}</p>
               <p>{item.quantity}x <strong>${item.price}.00</strong> </p>
               <p>Size: {item.size}</p>
+              </div>
             </li>)
         })}
       </ul>

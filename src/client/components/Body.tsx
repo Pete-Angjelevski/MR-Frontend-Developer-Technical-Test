@@ -26,8 +26,7 @@ const Body: React.FC<IBodyProps> = () => {
 
   function handleSize (size: string):void {
     setStyle({
-      margin: "10px",
-      padding: "5px",
+      
       border: "2px solid #222222",
       
     })
