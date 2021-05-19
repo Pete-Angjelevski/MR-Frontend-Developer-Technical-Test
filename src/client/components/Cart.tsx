@@ -2,13 +2,12 @@ import * as React from 'react'
 import { CartType } from '../types/appSpecificTypes' 
 import { useSelector } from 'react-redux'
 import { connect } from 'react-redux'
-
+import { Link } from 'react-router-dom'
 
 
 
 interface ICartProps {
-  trigger: boolean
-  setTrigger: any
+
 }
 
 
@@ -19,10 +18,9 @@ const Cart: React.FC<ICartProps> = (props):any => {
   
 
 
-  return (props.trigger) 
-  ? (
+  return (
     <div>
-      <button onclick={setCartPopup(false)}>X</button>
+      <Link to="/">X</Link>
       <ul>
         {cart.map((item: CartType) => {
           return (
@@ -36,7 +34,7 @@ const Cart: React.FC<ICartProps> = (props):any => {
       </ul>
     </div>
   ) 
-  : ""
+
     
     
 }

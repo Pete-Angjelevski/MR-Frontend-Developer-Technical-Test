@@ -38,7 +38,7 @@ const Body: React.FC<IBodyProps> = () => {
       </div>
       <div className="content">
         <p className="name">{name}</p>
-        <p className="price">${price}.00</p>
+        <p className="price"><strong>${price}.00</strong></p>
         <p>{description}</p>
         <div>
           <p>SIZE* {selectedSize}</p>

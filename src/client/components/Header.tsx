@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { Link, Route } from 'react-router-dom'
+
 
 //COMPONENTS
 import Cart from './Cart'
@@ -15,13 +16,13 @@ interface IHeaderProps {
 }
 
 const Header: React.FC<IHeaderProps> = () => {
-  const [cartPopup, setCartPopup] = useState<boolean>(false)
 
 
     return (
         <div className="headerContainer">
-          <a href="#" onClick={() => setCartPopup(true)}><p>My Cart({})</p></a>
-          <Cart trigger={cartPopup} setTrigger={setCartPopup}/>
+          <Link className="link" to='/cart'>My Cart(0)</Link>
+          <Route path="/cart" component={Cart} />
+          
         </div>
           
           )
