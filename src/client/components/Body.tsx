@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useState } from 'react'
+import { addToCart } from '../actions/cartActions'
 
+// DATA
 import clothingData from '../../Data/data'
 
 //STYLES
@@ -19,6 +21,10 @@ const Body: React.FC<IBodyProps> = () => {
   
   function handleSize (size: string):void {
     setSelected(size)
+  }
+
+  function handleAddToCart (): void {
+    
   }
 
   return (
