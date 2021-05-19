@@ -7,19 +7,22 @@ import { connect } from 'react-redux'
 
 
 interface ICartProps {
-
+  trigger: boolean
+  setTrigger: any
 }
 
 
-const Cart: React.FC<ICartProps> = () => {
+const Cart: React.FC<ICartProps> = (props):any => {
   
   const cart = useSelector((state: any) => state.cart)
 
   
 
 
-  return (
+  return (props.trigger) 
+  ? (
     <div>
+      <button onclick={setCartPopup(false)}>X</button>
       <ul>
         {cart.map((item: CartType) => {
           return (
@@ -32,8 +35,10 @@ const Cart: React.FC<ICartProps> = () => {
         })}
       </ul>
     </div>
+  ) 
+  : ""
     
-    )
+    
 }
 
 
