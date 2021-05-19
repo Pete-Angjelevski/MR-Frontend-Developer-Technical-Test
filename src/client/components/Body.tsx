@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { addToCart } from '../actions/cartActions'
+import { dispatch } from '../store'
+import { connect } from 'react-redux'
 
 // DATA
 import clothingData from '../../Data/data'
@@ -24,7 +26,9 @@ const Body: React.FC<IBodyProps> = () => {
   }
 
   function handleAddToCart (): void {
-    
+
+    dispatch(addToCart(id, name, price, img, selectedSize))
+
   }
 
   return (
@@ -43,7 +47,7 @@ const Body: React.FC<IBodyProps> = () => {
               <p className="size" key={size}  onClick={() => handleSize(size)}>{size}</p> )
           })}
         </div>
-        <button>ADD TO CART</button>
+        <button onClick={handleAddToCart}>ADD TO CART</button>
       </div>
 
     </div>
@@ -51,4 +55,4 @@ const Body: React.FC<IBodyProps> = () => {
 
 }
 
-export default Body
+export default connect()(Body)

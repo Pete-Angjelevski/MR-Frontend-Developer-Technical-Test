@@ -13,10 +13,10 @@ const cartReducer = (state = cartReducerDefaultState, action: CartActionTypes ):
 
     case ADD_TO_CART:
        return (
-        state.find(item => item.id === action.id)
+        state.find(item => item.size === action.size)
           ? state.map(item => (
-            item.id === action.id
-              ? { id: item.id, name: item.name, quantity: item.quantity + 1, price: item.price + action.price, img: action.img}
+            item.size === action.size
+              ? { id: item.id, name: item.name, quantity: item.quantity + 1, price: item.price + action.price, img: action.img, size: action.size}
               : item
           ))
           : [...state,
@@ -25,7 +25,8 @@ const cartReducer = (state = cartReducerDefaultState, action: CartActionTypes ):
               name: action.name,
               quantity: action.quantity,
               price: action.price,
-              img: action.img
+              img: action.img,
+              size: action.size
             }]
        )
 
