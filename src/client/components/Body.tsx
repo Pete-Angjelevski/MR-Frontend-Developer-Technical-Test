@@ -30,6 +30,7 @@ const Body: React.FC<IBodyProps> = () => {
       border: "2px solid #222222",
       
     })
+    setSizeError(false)
     setSelected(size)
   }
 
