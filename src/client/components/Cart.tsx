@@ -30,7 +30,7 @@ const Cart: React.FC<ICartProps> = (props):any => {
               <img src={item.img} />
               <div className="content">
               <p>{item.name}</p>
-              <p>{item.quantity}x <strong>${item.price}.00</strong> </p>
+              <p>{item.quantity}x <strong>${parseFloat(item.price.toString()).toFixed(2)}</strong> </p>
               <p>Size: {item.size}</p>
               </div>
             </li>)

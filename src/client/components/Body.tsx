@@ -54,7 +54,7 @@ const Body: React.FC<IBodyProps> = () => {
       </div>
       <div className="content">
         <p className="name">{name}</p>
-        <p className="price"><strong>${price}.00</strong></p>
+        <p className="price"><strong>${parseFloat(price.toString()).toFixed(2)}</strong></p>
         <p>{description}</p>
         <div>
           <p>SIZE<span>*</span> <strong>{selectedSize}</strong> 
