@@ -24,12 +24,28 @@ const Body: React.FC<IBodyProps> = () => {
   const [style, setStyle] = useState<object>()
   
 
-  function handleSize (size: string):void {
-    setStyle({
+  function handleSize (
+    size: string, 
+    e: React.MouseEvent<HTMLInputElement> 
+    ):void {
+    // setStyle({
       
-      border: "2px solid #222222",
+    //   border: "2px solid #222222",
       
+    // })
+    const value = e.target.innerText
+
+    sizes.forEach((size) => {
+      if (size === value) {
+        setStyle( {
+          border: "2px solid #222222",
+        })
+      } else {
+        return null 
+      }
     })
+
+
     setSizeError(false)
     setSelected(size)
   }
@@ -66,7 +82,7 @@ const Body: React.FC<IBodyProps> = () => {
               <p 
               className="size" 
               key={size}  
-              onClick={() => handleSize(size)}
+              onClick={(e) => handleSize(size, e)}
               style={style}
               >
                 {size}
